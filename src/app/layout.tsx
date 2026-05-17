@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     languages: { en: "/", "zh-CN": "/", "x-default": "/" },
   },
   openGraph: {
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Shenzhen Bay Velocity · 深圳湾极速" }],
     title: TITLE_EN,
     description: "Eight zones. Six vehicles. Seven modes. One coastline, drawn entirely at 200 km/h.",
     url: "https://shenzhen-velocity.psyverse.fun/",
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
     alternateLocale: ["zh_CN"],
   },
   twitter: {
+    images: ["/twitter-image.png"],
     card: "summary_large_image",
     title: TITLE_EN,
     description: "深圳湾极速 — extreme racing across the future coastline.",
