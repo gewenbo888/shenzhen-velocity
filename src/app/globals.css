@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Orbitron", "Bai Jamjuree", sans-serif;
+    --font-body:    "Inter", system-ui, sans-serif;
+    --font-mono:    "JetBrains Mono", "SF Mono", monospace;
+    --font-han:     "Noto Sans SC", "PingFang SC", sans-serif;
+    --magenta:  #ff2d8d;
+    --cyan:     #00f0ff;
+    --acid:     #d8ff3a;
+  }
+  html, body {
+    background: #02030a;
+    color: #bcc1d8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body { font-family: var(--font-body), "Noto Sans SC", sans-serif; overflow-x: hidden; }
+  html[lang="zh-CN"] body { font-family: "Noto Sans SC", var(--font-body), sans-serif; }
+  ::selection { background: rgba(255, 45, 141, 0.45); color: #fff; }
+  ::-webkit-scrollbar { width: 0; height: 0; }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+}
+
+@layer utilities {
+  .text-magenta-glow { color: #ff79b3; text-shadow: 0 0 16px rgba(255,45,141,0.55), 0 0 3px rgba(255,45,141,0.9); }
+  .text-cyan-glow    { color: #9beeff; text-shadow: 0 0 16px rgba(0,240,255,0.55), 0 0 3px rgba(0,240,255,0.9); }
+  .text-acid-glow    { color: #eaff8a; text-shadow: 0 0 14px rgba(216,255,58,0.45); }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(13,16,36,0.7) 0%, rgba(2,3,10,0.7) 100%);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(34, 42, 79, 0.85);
+  }
+  .glass-magenta { border-color: rgba(255,45,141,0.35); box-shadow: 0 0 30px rgba(255,45,141,0.08); }
+  .glass-cyan    { border-color: rgba(0,240,255,0.35);  box-shadow: 0 0 30px rgba(0,240,255,0.08); }
+  .neon-mag      { box-shadow: 0 0 0 1px rgba(255,45,141,0.85), 0 0 24px rgba(255,45,141,0.55); }
+  .neon-cyan     { box-shadow: 0 0 0 1px rgba(0,240,255,0.85), 0 0 24px rgba(0,240,255,0.55); }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,240,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,45,141,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .scanline {
+    background: repeating-linear-gradient(
+      to bottom, transparent 0px, transparent 2px,
+      rgba(0,240,255,0.012) 3px, transparent 4px
+    );
+  }
+  .hairline-h {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(189,193,216,0.4), transparent);
+  }
+
+  .corner-mag::before, .corner-mag::after,
+  .corner-cyan::before, .corner-cyan::after {
+    content: ""; position: absolute; width: 12px; height: 12px;
+  }
+  .corner-mag::before { top: 0; left:  0; border-top: 1px solid var(--magenta); border-left:  1px solid var(--magenta); }
+  .corner-mag::after  { top: 0; right: 0; border-top: 1px solid var(--magenta); border-right: 1px solid var(--magenta); }
+  .corner-cyan::before{ top: 0; left:  0; border-top: 1px solid var(--cyan);    border-left:  1px solid var(--cyan); }
+  .corner-cyan::after { top: 0; right: 0; border-top: 1px solid var(--cyan);    border-right: 1px solid var(--cyan); }
+
+  .skew-tag {
+    transform: skewX(-12deg);
+  }
+  .skew-tag > * { transform: skewX(12deg); display: inline-block; }
+}
+
+@keyframes blip { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+.blip { animation: blip 1.6s ease-in-out infinite; }
+
+@keyframes ticker-shift { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-track { animation: ticker-shift 60s linear infinite; }
+
+@keyframes streak {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateX(120vw); opacity: 0; }
+}
+.streak { animation: streak 1.8s linear infinite; }
+
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 20px var(--glow, rgba(255,45,141,0.5)), 0 0 60px var(--glow, rgba(255,45,141,0.3)); transform: scale(1); }
+  50%     { box-shadow: 0 0 36px var(--glow, rgba(255,45,141,0.85)),0 0 100px var(--glow, rgba(255,45,141,0.55)); transform: scale(1.03); }
+}
+.glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+@keyframes rain-fall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 0.5; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+.rain-drop { animation: rain-fall linear infinite; }
+
+@keyframes hue-shift {
+  0%,100% { filter: hue-rotate(0deg); }
+  50%     { filter: hue-rotate(20deg); }
+}
+.hue-shift { animation: hue-shift 8s ease-in-out infinite; }
