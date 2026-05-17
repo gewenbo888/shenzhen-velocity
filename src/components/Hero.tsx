@@ -97,7 +97,7 @@ export default function Hero() {
               className="mt-8 flex flex-wrap items-center gap-4"
             >
               <a
-                href="#modes"
+                href="/play"
                 className="group relative inline-flex items-center gap-3 px-7 py-3.5 font-display tracking-widerer text-base text-bone skew-tag glow-pulse"
                 style={{
                   background: "linear-gradient(90deg, #ff0066 0%, #ff2d8d 100%)",

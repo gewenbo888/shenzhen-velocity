@@ -128,8 +128,8 @@ export const COPY = {
     primary: { en: "START RACING", zh: "开始竞速" },
     secondary: { en: "OPEN GARAGE", zh: "进入车库" },
     note: {
-      en: "Buttons here are visual — this is a concept landing page, not a playable client.",
-      zh: "按钮仅作视觉演示——本站是概念页,非可玩客户端。",
+      en: "START RACING opens /play — a small endless-runner prototype, not the full AAA game the rest of this page imagines.",
+      zh: "“开始竞速” 进入 /play —— 一个无尽奔跑原型,而非本站其余处所描绘的完整 AAA 版本。",
     },
   },
 

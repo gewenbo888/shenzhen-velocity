@@ -58,7 +58,7 @@ export default function CTA() {
           className="mt-10 flex items-center justify-center gap-4 flex-wrap"
         >
           <a
-            href="#hero"
+            href="/play"
             className="group relative inline-flex items-center gap-3 px-8 py-4 font-display tracking-widerer text-base text-bone skew-tag glow-pulse"
             style={{
               background: "linear-gradient(90deg, #ff0066 0%, #ff2d8d 100%)",
